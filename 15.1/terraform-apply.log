@@ -1,0 +1,321 @@
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # yandex_compute_instance.private-vm will be created
+  + resource "yandex_compute_instance" "private-vm" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "user-data" = <<-EOT
+                #cloud-config
+                users:
+                  - name: grayfix
+                    groups: sudo
+                    shell: /bin/bash
+                    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+                    ssh-authorized-keys:
+                      - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDyokaC3/gbJ/RKo/zX/qsjstnjWhOI8GqxqgddKWtrwpcSCcpLH61pb7Zot0Zu9ePEasSQuVIPOtFJDjqk2gZ8= ecdsa-key-20220404
+            EOT
+        }
+      + name                      = "private-vm"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd879gb88170to70d38a"
+              + name        = (known after apply)
+              + size        = (known after apply)
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = (known after apply)
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + placement_group_id = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 5
+          + cores         = 2
+          + memory        = 4
+        }
+
+      + scheduling_policy {
+          + preemptible = true
+        }
+    }
+
+  # yandex_compute_instance.public-nat will be created
+  + resource "yandex_compute_instance" "public-nat" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "user-data" = <<-EOT
+                #cloud-config
+                users:
+                  - name: grayfix
+                    groups: sudo
+                    shell: /bin/bash
+                    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+                    ssh-authorized-keys:
+                      - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDyokaC3/gbJ/RKo/zX/qsjstnjWhOI8GqxqgddKWtrwpcSCcpLH61pb7Zot0Zu9ePEasSQuVIPOtFJDjqk2gZ8= ecdsa-key-20220404
+            EOT
+        }
+      + name                      = "public-nat"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd80mrhj8fl2oe87o4e1"
+              + name        = (known after apply)
+              + size        = (known after apply)
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = "192.168.10.254"
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + placement_group_id = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 5
+          + cores         = 2
+          + memory        = 2
+        }
+
+      + scheduling_policy {
+          + preemptible = true
+        }
+    }
+
+  # yandex_compute_instance.public-vm will be created
+  + resource "yandex_compute_instance" "public-vm" {
+      + created_at                = (known after apply)
+      + folder_id                 = (known after apply)
+      + fqdn                      = (known after apply)
+      + hostname                  = (known after apply)
+      + id                        = (known after apply)
+      + metadata                  = {
+          + "user-data" = <<-EOT
+                #cloud-config
+                users:
+                  - name: grayfix
+                    groups: sudo
+                    shell: /bin/bash
+                    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+                    ssh-authorized-keys:
+                      - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDyokaC3/gbJ/RKo/zX/qsjstnjWhOI8GqxqgddKWtrwpcSCcpLH61pb7Zot0Zu9ePEasSQuVIPOtFJDjqk2gZ8= ecdsa-key-20220404
+            EOT
+        }
+      + name                      = "public-vm"
+      + network_acceleration_type = "standard"
+      + platform_id               = "standard-v1"
+      + service_account_id        = (known after apply)
+      + status                    = (known after apply)
+      + zone                      = "ru-central1-b"
+
+      + boot_disk {
+          + auto_delete = true
+          + device_name = (known after apply)
+          + disk_id     = (known after apply)
+          + mode        = (known after apply)
+
+          + initialize_params {
+              + block_size  = (known after apply)
+              + description = (known after apply)
+              + image_id    = "fd879gb88170to70d38a"
+              + name        = (known after apply)
+              + size        = (known after apply)
+              + snapshot_id = (known after apply)
+              + type        = "network-hdd"
+            }
+        }
+
+      + network_interface {
+          + index              = (known after apply)
+          + ip_address         = (known after apply)
+          + ipv4               = true
+          + ipv6               = (known after apply)
+          + ipv6_address       = (known after apply)
+          + mac_address        = (known after apply)
+          + nat                = true
+          + nat_ip_address     = (known after apply)
+          + nat_ip_version     = (known after apply)
+          + security_group_ids = (known after apply)
+          + subnet_id          = (known after apply)
+        }
+
+      + placement_policy {
+          + placement_group_id = (known after apply)
+        }
+
+      + resources {
+          + core_fraction = 5
+          + cores         = 2
+          + memory        = 4
+        }
+
+      + scheduling_policy {
+          + preemptible = true
+        }
+    }
+
+  # yandex_vpc_network.netology-vpc will be created
+  + resource "yandex_vpc_network" "netology-vpc" {
+      + created_at                = (known after apply)
+      + default_security_group_id = (known after apply)
+      + folder_id                 = (known after apply)
+      + id                        = (known after apply)
+      + labels                    = (known after apply)
+      + name                      = "netology-vpc"
+      + subnet_ids                = (known after apply)
+    }
+
+  # yandex_vpc_route_table.private-rt will be created
+  + resource "yandex_vpc_route_table" "private-rt" {
+      + created_at = (known after apply)
+      + folder_id  = (known after apply)
+      + id         = (known after apply)
+      + labels     = (known after apply)
+      + name       = "private-rt"
+      + network_id = (known after apply)
+
+      + static_route {
+          + destination_prefix = "0.0.0.0/0"
+          + next_hop_address   = "192.168.10.254"
+        }
+    }
+
+  # yandex_vpc_subnet.private will be created
+  + resource "yandex_vpc_subnet" "private" {
+      + created_at     = (known after apply)
+      + folder_id      = (known after apply)
+      + id             = (known after apply)
+      + labels         = (known after apply)
+      + name           = "private"
+      + network_id     = (known after apply)
+      + route_table_id = (known after apply)
+      + v4_cidr_blocks = [
+          + "192.168.20.0/24",
+        ]
+      + v6_cidr_blocks = (known after apply)
+      + zone           = "ru-central1-b"
+    }
+
+  # yandex_vpc_subnet.public will be created
+  + resource "yandex_vpc_subnet" "public" {
+      + created_at     = (known after apply)
+      + folder_id      = (known after apply)
+      + id             = (known after apply)
+      + labels         = (known after apply)
+      + name           = "public"
+      + network_id     = (known after apply)
+      + v4_cidr_blocks = [
+          + "192.168.10.0/24",
+        ]
+      + v6_cidr_blocks = (known after apply)
+      + zone           = "ru-central1-b"
+    }
+
+Plan: 7 to add, 0 to change, 0 to destroy.
+
+Changes to Outputs:
+  + private-vm_ip = (known after apply)
+  + public-nat_ip = (known after apply)
+  + public-vm_ip  = (known after apply)
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+yandex_vpc_network.netology-vpc: Creating...
+yandex_vpc_network.netology-vpc: Creation complete after 1s [id=enpjcmg9utpnuqquv0p5]
+yandex_vpc_route_table.private-rt: Creating...
+yandex_vpc_subnet.public: Creating...
+yandex_vpc_subnet.public: Creation complete after 0s [id=e2l9v7m33j28b0ri216l]
+yandex_compute_instance.public-nat: Creating...
+yandex_compute_instance.public-vm: Creating...
+yandex_vpc_route_table.private-rt: Creation complete after 1s [id=enpheldls773i3pfsl20]
+yandex_vpc_subnet.private: Creating...
+yandex_vpc_subnet.private: Creation complete after 0s [id=e2l15rm5jef7426d0fe4]
+yandex_compute_instance.private-vm: Creating...
+yandex_compute_instance.public-vm: Still creating... [10s elapsed]
+yandex_compute_instance.public-nat: Still creating... [10s elapsed]
+yandex_compute_instance.private-vm: Still creating... [10s elapsed]
+yandex_compute_instance.public-nat: Still creating... [20s elapsed]
+yandex_compute_instance.public-vm: Still creating... [20s elapsed]
+yandex_compute_instance.private-vm: Still creating... [20s elapsed]
+yandex_compute_instance.public-vm: Creation complete after 25s [id=epdd79t4kei4p74rkj5a]
+yandex_compute_instance.private-vm: Creation complete after 27s [id=epdd5a5e53rdiqlcq22u]
+yandex_compute_instance.public-nat: Still creating... [30s elapsed]
+yandex_compute_instance.public-nat: Still creating... [40s elapsed]
+yandex_compute_instance.public-nat: Creation complete after 45s [id=epdvmqh3l2ocgslbgdl4]
+
+Apply complete! Resources: 7 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+private-vm_ip = "192.168.20.23"
+public-nat_ip = "51.250.100.233"
+public-vm_ip = "51.250.111.213"

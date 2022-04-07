@@ -1,0 +1,6 @@
+zone       = "ru-central1-b"
+cloud_id   = "b1gu9piqq14p2h00buhe"
+folder_id  = "b1gjolnnoe2770jcqeg5"
+yc_image_nat_id  = "fd80mrhj8fl2oe87o4e1"
+yc_image_ubuntu_id = "fd879gb88170to70d38a"
+nat_ip = "192.168.10.254"

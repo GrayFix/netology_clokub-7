@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: grayfix
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+      - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDyokaC3/gbJ/RKo/zX/qsjstnjWhOI8GqxqgddKWtrwpcSCcpLH61pb7Zot0Zu9ePEasSQuVIPOtFJDjqk2gZ8= ecdsa-key-20220404

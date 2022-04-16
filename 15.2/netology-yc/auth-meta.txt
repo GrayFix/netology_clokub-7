@@ -1,0 +1,25 @@
+#cloud-config
+users:
+  - name: grayfix
+    groups: sudo
+    shell: /bin/bash
+    sudo: ['ALL=(ALL) NOPASSWD:ALL']
+    ssh-authorized-keys:
+#      - ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBDyokaC3/gbJ/RKo/zX/qsjstnjWhOI8GqxqgddKWtrwpcSCcpLH61pb7Zot0Zu9ePEasSQuVIPOtFJDjqk2gZ8= ecdsa-key-20220404
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCcJkuZqmtKxcaut9SQs7QTU79jYvPOyHo9Tvdn1/JGeQxb+jspMs1EyvFkllPFtVx9bYQ54nV/Iv+ic9Igd2Ryx1qWKp18TUhHfMXeKNNq2m4M8FhLsSseFoPh1EpvZA65auq2VT4TdK0yEXuqzxZSr9fpEylhZ9DPMAo79yh2yxhDG+otUyHDC/xyuSC+nXWblEwcPTP3ZAlbZlDBKk1CD9lp3DzzCGa1N0BGm7Sn8dwSVOAJWPJ+1nSot4l9a3XUntij5xLNVsm5aMA8/+gwONSkXdUTDDTjtQJyh6ZH6yiP/lnF00JE3P4xl4ibDJx73aUJ6Pm45wK0bltZnuzV root@centos7-tmp-2021.ugmk.com
+write_files:
+  - content: |
+      <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+      <html>
+      <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Картинка Grayfix clokub-homeworks 15.2</title>
+      </head>
+      <body>
+        <style>.aligncenter {text-align: center;}</style>
+        <p class="aligncenter"><img src="https://storage.yandexcloud.net/netology-grayfix/netology.jpg" height="500" alt="netology" /></p>
+      </body>
+      </html>
+    path: /var/www/html/index.html
+    permissions: '0644'
+    owner: root:root

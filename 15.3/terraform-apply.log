@@ -1,0 +1,66 @@
+PS xxxxxxx\netology-yc> terraform apply
+yandex_iam_service_account.sa-os-netology: Refreshing state... [id=aje1t47bvv425tdl60vs]
+yandex_kms_symmetric_key.kms-os-netology: Refreshing state... [id=abjos1mnf43kqr6qlpn2]
+yandex_resourcemanager_folder_iam_member.sa-editor: Refreshing state... [id=b1gjolnnoe2770jcqeg5/storage.editor/serviceAccount:aje1t47bvv425tdl60vs]
+yandex_iam_service_account_static_access_key.sa-static-key: Refreshing state... [id=ajes8aq0h3ld6sm2c94j]
+
+Note: Objects have changed outside of Terraform
+
+Terraform detected the following changes made outside of Terraform since the last "terraform apply":
+
+  # yandex_kms_symmetric_key.kms-os-netology has changed
+  ~ resource "yandex_kms_symmetric_key" "kms-os-netology" {
+        id                = "abjos1mnf43kqr6qlpn2"
+      + labels            = {}
+        name              = "kms-os-netology"
+        # (5 unchanged attributes hidden)
+    }
+
+
+Unless you have made equivalent changes to your configuration, or ignored the relevant attributes using ignore_changes, the following plan may include actions to undo or respond to these changes.
+
+──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── 
+
+Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # yandex_storage_bucket.netology-grayfix-v2 will be created
+  + resource "yandex_storage_bucket" "netology-grayfix-v2" {
+      + access_key         = "YCAJE3xxntsLYAVTMxcUKU1I8"
+      + acl                = "public-read"
+      + bucket             = "netology-grayfix-v2"
+      + bucket_domain_name = (known after apply)
+      + force_destroy      = false
+      + id                 = (known after apply)
+      + secret_key         = (sensitive value)
+      + website_domain     = (known after apply)
+      + website_endpoint   = (known after apply)
+
+      + server_side_encryption_configuration {
+          + rule {
+              + apply_server_side_encryption_by_default {
+                  + kms_master_key_id = "abjos1mnf43kqr6qlpn2"
+                  + sse_algorithm     = "aws:kms"
+                }
+            }
+        }
+
+      + versioning {
+          + enabled = (known after apply)
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+
+Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+yandex_storage_bucket.netology-grayfix-v2: Creating...
+yandex_storage_bucket.netology-grayfix-v2: Creation complete after 2s [id=netology-grayfix-v2]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.

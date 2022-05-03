@@ -36,4 +36,6 @@
   - phpMyAdmin
     - Манифест для деплоя [deploy.yaml](./phpmyadmin/deploy.yaml)
     - Перед применением изменить хост mysql на выданный терраформом. Логин и пароль на сам сервис лучше спрятать получше.
+    - Скриншот 
+    ![text](images/phpmyadmin.png)
 
